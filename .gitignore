@@ -1,0 +1,13 @@
+.idea/
+.git/
+.gradle/
+//gradle
+build
+app/biild
+app/app.iml
+//app/build.gradle
+app/proguard-rules.pro
+app/src/test
+app/src/androidTest
+*.iml
+local.properties
