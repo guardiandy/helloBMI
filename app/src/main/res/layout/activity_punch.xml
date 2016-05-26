@@ -27,14 +27,42 @@
         android:layout_alignParentStart="true"
         android:textSize="28sp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="姓名:"
+        android:id="@+id/textView9"
+        android:textSize="38sp"
+        android:layout_below="@+id/punch_Date_TextView"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/punch_Name_Text"
+        android:layout_above="@+id/punch_history_button"
+        android:layout_alignParentStart="true"
+        android:width="200dp"
+        android:textSize="38sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="清除"
+        android:id="@+id/punch_Name_Clear_Button"
+        android:layout_alignBottom="@+id/punch_Name_Text"
+        android:layout_alignStart="@+id/punch_history_button"
+        android:textSize="30sp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="我要打卡"
         android:id="@+id/punch_now_button"
-        android:layout_below="@+id/punch_Date_TextView"
-        android:layout_alignParentStart="true"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"

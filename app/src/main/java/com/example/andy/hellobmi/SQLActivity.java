@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.andy.hellobmi.database.Punch;
 import com.example.andy.hellobmi.database.PunchTable;
-import com.example.andy.hellobmi.dbframework.MyDbOpenHelper;
 
 public class SQLActivity extends AppCompatActivity {
 
@@ -22,7 +21,7 @@ public class SQLActivity extends AppCompatActivity {
     private Button SQLClearButton;
     private EditText 日期;
     private EditText 姓名;
-    private MyDbOpenHelper dbHelper;
+//    private MyDbOpenHelper dbHelper;
     private Punch punch;
     private PunchTable punchTable;
 
@@ -40,8 +39,8 @@ public class SQLActivity extends AppCompatActivity {
         SQLClearButton = (Button) findViewById(R.id.SQL_clear_button);
         日期 = (EditText) findViewById(R.id.日期);
         姓名 = (EditText) findViewById(R.id.姓名);
-        dbHelper = new MyDbOpenHelper(this, "打卡資料庫.db", null, MyDbOpenHelper.VERSION);
-        punchTable = new PunchTable(dbHelper.getDatabase(), "打卡資料");
+//        dbHelper = new MyDbOpenHelper(this, "打卡資料庫.db", null, MyDbOpenHelper.VERSION);
+//        punchTable = new PunchTable(dbHelper.getDatabase(), "打卡資料");
 
         //資料庫產生按鈕
         SQLCreateButton.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +51,7 @@ public class SQLActivity extends AppCompatActivity {
                 //調用DatabaseHelper對象的getReadableDatabase方法或是getWritableDatabase方法
 //                SQLiteDatabase db = mHelper.getReadableDatabase();
                 //呼叫dbHelper的getDatabase method
-                dbHelper.getDatabase();
+//                dbHelper.getDatabase();
                 //當使用者按下按鈕時顯示Toast
                 //Toast.LENGTH_LONG表示顯示時間較長，Toast.LENGTH_SHORT則表示顯示時間較短
                 Toast.makeText(v.getContext(), "SQL資料庫已建立", Toast.LENGTH_LONG).show();
