@@ -22,6 +22,7 @@
         <activity android:name=".FoodSuggest" />
         <activity android:name=".SQLActivity" />
         <activity android:name=".PunchActivity" />
+        <activity android:name=".PunchActivity2"></activity>
     </application>
 
 </manifest>

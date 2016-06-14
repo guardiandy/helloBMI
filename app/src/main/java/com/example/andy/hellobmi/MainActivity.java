@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         personPunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PunchActivity.class);
+                Intent intent = new Intent(MainActivity.this, PunchActivity2.class);
                 startActivity(intent);
             }
         });
