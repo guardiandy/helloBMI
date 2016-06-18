@@ -49,6 +49,7 @@ public class PunchActivity extends AppCompatActivity {
 
         PunchDbOpenHelper punchDbOpenHelper = new PunchDbOpenHelper(getApplicationContext(), DB_FILE, null, 1);
         final SQLiteDatabase punchdb = punchDbOpenHelper.getWritableDatabase();
+
         //檢查資料表是否已存在，如果不存在，就建立一個
         Cursor cursor = punchdb.rawQuery(
                 "select DISTINCT tbl_name from sqlite_master where tbl_name = '" + DB_TABLE + "'", null);

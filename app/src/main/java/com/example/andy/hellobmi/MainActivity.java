@@ -34,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
         personPunchButton = (Button) findViewById(R.id.main_punch_button);
         personSQLButton = (Button) findViewById(R.id.main_SQL_button);
 
-        /**
-         * 按鈕計算BMI
-         */
+        //按鈕計算BMI
         personBMIButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,9 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        /**
-         * 呼叫BMI建議Activity
-         */
+        //呼叫BMI建議Activity
         personBMISuggestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,9 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /**
-         * 呼叫關於Activity
-         */
+
+        //呼叫關於Activity
 //        personBMIAboutButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -78,9 +73,8 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-        /**
-         * 呼叫FoodSuggest Listview
-         */
+
+        //呼叫FoodSuggest Listview
         personBMIAboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,9 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /**
-         * 呼叫打卡Activity
-         */
+
+        //呼叫打卡Activity
         personPunchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,9 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /**
-        * 呼叫SQL Activity
-        */
+
+        //呼叫SQL Activity
         personSQLButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
