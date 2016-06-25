@@ -23,7 +23,8 @@
         <activity android:name=".SQLActivity" />
         <activity android:name=".PunchActivity" />
         <activity android:name=".PunchActivity2" />
-        <activity android:name=".PunchEdit"></activity>
+        <activity android:name=".PunchEdit" />
+        <activity android:name=".PunchActivity3"></activity>
     </application>
 
 </manifest>

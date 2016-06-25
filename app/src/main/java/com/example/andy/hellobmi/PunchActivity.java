@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.andy.hellobmi.database.PunchDbOpenHelper;
+
 import java.text.SimpleDateFormat;
 
 public class PunchActivity extends AppCompatActivity {
