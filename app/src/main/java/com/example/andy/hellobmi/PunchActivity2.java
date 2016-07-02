@@ -69,7 +69,7 @@ public class PunchActivity2 extends AppCompatActivity {
         punchDateTextView.setText(dateString + " " + timeString);
 
 
-        //上班打卡按鈕
+        //region 上班打卡按鈕
         punchOnDutyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,8 +92,9 @@ public class PunchActivity2 extends AppCompatActivity {
                 }
             }
         });
+        //endregion
 
-        //下班打卡按鈕
+        //region 下班打卡按鈕
         punchOffDutyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,8 +117,9 @@ public class PunchActivity2 extends AppCompatActivity {
                 }
             }
         });
+        //endregion
 
-        //打卡歷史查詢Button
+        //region 打卡歷史查詢Button
         punchHistoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +137,7 @@ public class PunchActivity2 extends AppCompatActivity {
                 cursor.close();
             }
         });
+        //endregion
 
         //資料修改Button
         punchEditButton.setOnClickListener(new View.OnClickListener() {

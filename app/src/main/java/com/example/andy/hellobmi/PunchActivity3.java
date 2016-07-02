@@ -1,5 +1,6 @@
 package com.example.andy.hellobmi;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -44,77 +45,73 @@ public class PunchActivity3 extends AppCompatActivity {
         //建立資料表
         itemDAO.createPunchTable();
 
-
-        //顯示現在的日期時間
+        //region 顯示現在的日期時間
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat sdft = new SimpleDateFormat("HH:mm");
         final String dateString = sdf.format(date);
         final String timeString = sdft.format(date);
         punchDateTextView.setText(dateString + " " + timeString);
+        //endregion
 
-        //上班打卡按鈕
+        //region 上班打卡按鈕
         punchOnDutyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemDAO.punchOnDuty();
-                if (isSuccess()){
-                    Toast.makeText(v.getContext(), "新增資料成功", Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(v.getContext(), "你今天已經打過卡囉", Toast.LENGTH_LONG).show();
+                if (itemDAO.punchOnDuty()) {
+                    Toast.makeText(v.getContext(), "你今天已經打過卡囉", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(v.getContext(), "新增資料成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //endregion
 
-        //下班打卡按鈕
+        //region 下班打卡按鈕
         punchOffDutyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemDAO.punchOffDuty();
-                if (isSuccess()){
-                    Toast.makeText(v.getContext(), "新增資料成功", Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(v.getContext(), "你今天已經打過卡囉", Toast.LENGTH_LONG).show();
+                if (itemDAO.punchOffDuty()) {
+                    Toast.makeText(v.getContext(), "你今天已經打過卡囉", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(v.getContext(), "新增資料成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //endregion
 
-        //資料表清除按鈕
+        //region 資料表清除按鈕
         punchDropTableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemDAO.clearPunchTable();
-                if(isTableDropSuccess()){
-                    Toast.makeText(v.getContext(), "刪除資料庫成功", Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(v.getContext(), "刪除資料庫失敗", Toast.LENGTH_LONG).show();
+                if (itemDAO.clearPunchTable()) {
+                    Toast.makeText(v.getContext(), "刪除資料庫成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(v.getContext(), "刪除資料庫失敗", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //endregion
 
+        //region 歷史紀錄查詢按鈕
+        punchHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                punchHistoryTextView.setText(itemDAO.getHistory());
+            }
+        });
+        //endregion
 
+        //region 打卡資料修改按鈕
+        punchEditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PunchActivity3.this, PunchEditActivity2.class);
+                startActivity(intent);
+            }
+        });
+        //endregion
     }
-
-
-    //接收DAO回傳值
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setDropTableSuccess(boolean success){
-        this.success = success;
-    }
-
-    public boolean isTableDropSuccess(){
-        return success;
-    }
-
-
-
 }
 
 
