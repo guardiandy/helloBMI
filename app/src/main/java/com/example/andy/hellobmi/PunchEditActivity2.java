@@ -22,10 +22,6 @@ public class PunchEditActivity2 extends AppCompatActivity {
     private ArrayAdapter<CharSequence> punchAdapter;
     private Button punchEditButton;
     private ItemDAO itemDAO;
-//    private static int hour = punchHourNumberpicker.getValue();
-//    private static int minute = punchMinuteNumberpicker.getValue();
-//    public static String sTime = String.format("%02d", hour) + ":" + String.format("%02d", minute);
-//    public static String sType = punchEditTypeSpinner.getSelectedItem().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +33,8 @@ public class PunchEditActivity2 extends AppCompatActivity {
         punchMinuteNumberpicker = (NumberPicker) findViewById(R.id.punch_minute_numberpicker);
         punchEditTypeSpinner = (Spinner) findViewById(R.id.punch_edit_type_spinner);
         punchEditButton = (Button) findViewById(R.id.punch_edit_button);
+
+        itemDAO = new ItemDAO(this);
 
         //region 設定numberpicker格式
         punchHourNumberpicker.setMinValue(01);
@@ -63,15 +61,6 @@ public class PunchEditActivity2 extends AppCompatActivity {
         //上下班選擇Spinner
         punchEditTypeSpinner.setAdapter(punchAdapter);
 
-        //region numberpicker轉換為時間
-//        int hour = punchHourNumberpicker.getValue();
-//        int minute = punchMinuteNumberpicker.getValue();
-//        String sHour = String.format("%02d", hour);
-//        String sMin = String.format("%02d", minute);
-//        final String sTime = sHour + ":" + sMin;
-//        final String sType = punchEditTypeSpinner.getSelectedItem().toString();
-        //endregion
-
         //region 顯示現在的日期時間
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,31 +70,31 @@ public class PunchEditActivity2 extends AppCompatActivity {
         punchEditCurrentDate.setText(dateString);
         //endregion
 
+        //region 修改打卡資料
         punchEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemDAO.punchEdit();
-//                if (itemDAO.punchEdit()) {
+                itemDAO.punchEdit(editPunchTimeFormat(), editPunchTypeFormat());
                     Toast.makeText(v.getContext(), "更改資料成功", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(v.getContext(), "更改資料失敗", Toast.LENGTH_SHORT).show();
                 }
-//            }
         });
+        //endregion
     }
 
-    public String editPunchTimeFormat(){
+    //region 回傳打卡時間
+    private String editPunchTimeFormat(){
         int hour = punchHourNumberpicker.getValue();
         int minute = punchMinuteNumberpicker.getValue();
-////        String sHour = String.format("%02d", hour);
-////        String sMin = String.format("%02d", minute);
         String stime = String.format("%02d", hour) + ":" + String.format("%02d", minute);
         return stime;
     }
+    //endregion
 
+    //region 回傳打卡類型
     public String editPunchTypeFormat(){
         String stype = punchEditTypeSpinner.getSelectedItem().toString();
         return stype;
     }
+    //endregion
 
 }

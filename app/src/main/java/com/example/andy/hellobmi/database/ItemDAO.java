@@ -21,7 +21,6 @@ public class ItemDAO {
     public static final String TIME_COLUMN = "time";
     public static final String NAME_COLUMN = "name";
     public static final String TYPE_COLUMN = "type";
-    private PunchEditActivity2 punchEditActivity2;
 
     //現在的日期時間
     long date = System.currentTimeMillis();
@@ -141,13 +140,10 @@ public class ItemDAO {
     }
     //endregion
 
-    public void punchEdit(){
+    public void punchEdit(String punchTime, String punchType){
         ContentValues cv = new ContentValues();
-//        PunchEditActivity2 punchEditActivity2 = new PunchEditActivity2();
-//        String time = PunchEditActivity2.editPunchTimeFormat();
-//        String type = PunchEditActivity2.editPunchTypeFormat();
-        cv.put("time", punchEditActivity2.editPunchTimeFormat());
-        punchdb.update(DB_TABLE, cv, "date= '" + dateString + "'" + " AND type='" + punchEditActivity2.editPunchTypeFormat() + "'", null);
+        cv.put("time", punchTime);
+        punchdb.update(DB_TABLE, cv, "date= '" + dateString + "'" + " AND type='" + punchType + "'", null);
     }
 
 }
