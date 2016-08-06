@@ -20,6 +20,7 @@ public class PunchActivity3 extends AppCompatActivity {
     private Button punchHistoryButton;
     private Button punchDropTableButton;
     private Button punchEditButton;
+    private Button punchSendLineButton;
     private TextView punchHistoryTextView;
     private ItemDAO itemDAO;
     private boolean success;
@@ -36,6 +37,7 @@ public class PunchActivity3 extends AppCompatActivity {
         punchHistoryButton = (Button) findViewById(R.id.punch_history_button);
         punchDropTableButton = (Button) findViewById(R.id.punch_drop_table_button);
         punchEditButton = (Button) findViewById(R.id.punch_edit_button);
+        punchSendLineButton = (Button) findViewById(R.id.punch_edit_sendline_button);
         punchHistoryTextView = (TextView) findViewById(R.id.punch_History_Textview);
 
 
@@ -111,6 +113,18 @@ public class PunchActivity3 extends AppCompatActivity {
             }
         });
         //endregion
+
+        punchSendLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT,"分享文字給Line");
+                sendIntent.setType("text/plain");
+                sendIntent.setPackage("jp.naver.line.android");
+                startActivity(sendIntent);
+            }
+        });
     }
 }
 
